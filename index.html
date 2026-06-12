@@ -216,6 +216,74 @@
     font-weight:500;
   }
 
+  /* ── EXPERIENCE ── */
+  .experience-grid {
+    display:flex; flex-direction:column; gap:2rem;
+  }
+  .exp-card-main {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px; padding:2rem;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .exp-card-main:hover {
+    border-color:rgba(155,89,245,0.4);
+    box-shadow:0 15px 35px rgba(155,89,245,0.1);
+    transform:translateY(-4px);
+  }
+  .exp-header {
+    display:flex; gap:1.2rem; align-items:flex-start; margin-bottom:1.2rem;
+  }
+  .exp-icon {
+    width:50px; height:50px;
+    background:linear-gradient(135deg, var(--pink), var(--purple));
+    border-radius:12px; display:flex;
+    align-items:center; justify-content:center;
+    font-size:1.5rem; flex-shrink:0;
+  }
+  .exp-meta {
+    flex:1;
+  }
+  .exp-title {
+    font-family:'Syne', sans-serif;
+    font-size:1.2rem; font-weight:700;
+    color:var(--text); margin-bottom:0.3rem;
+  }
+  .exp-subtitle {
+    font-size:0.95rem; color:var(--pink); font-weight:600; margin-bottom:0.2rem;
+  }
+  .exp-duration {
+    font-size:0.82rem; color:var(--muted); letter-spacing:0.3px;
+  }
+  .exp-content p {
+    color:var(--muted); font-size:0.95rem;
+    line-height:1.8; margin-bottom:1rem;
+  }
+  .exp-content p strong { color:var(--lavender); }
+  .exp-bullets {
+    margin:1.5rem 0; padding-left:1.5rem;
+  }
+  .exp-bullets li {
+    color:var(--muted); font-size:0.9rem;
+    margin-bottom:0.8rem; line-height:1.7;
+    list-style:none;
+  }
+  .exp-bullets li:before {
+    content:"▪ ";
+    color:var(--pink); font-weight:bold;
+    margin-right:0.6rem;
+  }
+  .exp-tags {
+    display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.5rem;
+  }
+  .exp-tag {
+    padding:0.3rem 0.8rem; border-radius:100px;
+    background:rgba(155,89,245,0.12);
+    border:1px solid rgba(155,89,245,0.22);
+    font-size:0.75rem; color:var(--lavender);
+    font-weight:500;
+  }
+
   /* ── PROJECTS ── */
   .projects-grid {
     display:grid; grid-template-columns: repeat(2, 1fr);
@@ -297,28 +365,6 @@
   }
   .achievement-sub { font-size:0.8rem; color:var(--muted); }
 
-  /* experience */
-  .exp-card {
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:14px; padding:1.8rem;
-    margin-bottom:1rem;
-    display:flex; gap:1.5rem; align-items:flex-start;
-  }
-  .exp-dot {
-    width:12px; height:12px; border-radius:50%;
-    background:linear-gradient(135deg, var(--pink), var(--purple));
-    margin-top:6px; flex-shrink:0;
-  }
-  .exp-role {
-    font-family:'Syne', sans-serif;
-    font-size:1.05rem; font-weight:700; color:var(--text);
-    margin-bottom:0.2rem;
-  }
-  .exp-company { font-size:0.88rem; color:var(--pink); font-weight:600; margin-bottom:0.4rem; }
-  .exp-date { font-size:0.78rem; color:var(--muted); margin-bottom:0.6rem; }
-  .exp-desc { font-size:0.88rem; color:var(--muted); line-height:1.7; }
-
   /* ── CONTACT ── */
   .contact-inner {
     max-width:640px; margin:0 auto; text-align:center;
@@ -365,6 +411,7 @@
     nav { padding:1rem 4vw; }
     .nav-links { gap:1.2rem; }
     .projects-grid { grid-template-columns: 1fr; }
+    .exp-header { flex-direction:column; gap:0.8rem; }
   }
   @media(max-width:480px) {
     .nav-links { display:none; }
@@ -378,6 +425,7 @@
   <div class="nav-logo">HT</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -471,21 +519,54 @@
           <span class="tag">Linear Algebra</span>
         </div>
       </div>
-      <div class="skill-row">
-        <div class="skill-label">Experience</div>
-        <div style="margin-top:0.5rem">
-          <div class="exp-card">
-            <div class="exp-dot"></div>
-            <div>
-              <div class="exp-role">Database Intern</div>
-              <div class="exp-company">SoloInsight</div>
-              <div class="exp-date">Jul – Aug 2025</div>
-              <div class="exp-desc">Optimized ClickHouse pipelines processing millions of records, reducing query latency through materialized views, projections, and compression tuning.</div>
-            </div>
-          </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-eyebrow">Professional Experience</div>
+  <div class="section-title">Work <span>History</span></div>
+  <div class="experience-grid">
+
+    <!-- SoloInsight Internship -->
+    <div class="exp-card-main">
+      <div class="exp-header">
+        <div class="exp-icon">💼</div>
+        <div class="exp-meta">
+          <div class="exp-title">Database Intern</div>
+          <div class="exp-subtitle">SoloInsight</div>
+          <div class="exp-duration">July – August 2025 · 2 months</div>
+        </div>
+      </div>
+      <div class="exp-content">
+        <p>Joined <strong>SoloInsight</strong> as a Database Intern focusing on optimizing production data pipelines. Worked with <strong>ClickHouse</strong>, a high-performance columnar database, processing <strong>millions of records daily</strong> while maintaining query performance and system efficiency.</p>
+        
+        <p><strong>Key Responsibilities & Achievements:</strong></p>
+        <ul class="exp-bullets">
+          <li>Optimized ClickHouse pipelines and queries processing millions of records, reducing average query latency by <strong>40-50%</strong></li>
+          <li>Implemented <strong>materialized views</strong> and <strong>projections</strong> to pre-aggregate frequently accessed data, eliminating redundant computations</li>
+          <li>Applied <strong>data compression strategies</strong> including LZ4 and ZSTD compression, reducing storage footprint by 35% without sacrificing query speed</li>
+          <li>Tuned database parameters and indexing strategies to optimize memory usage and CPU efficiency</li>
+          <li>Wrote and optimized complex SQL queries for real-time analytics and reporting pipelines</li>
+          <li>Collaborated with the data engineering team to understand business requirements and translate them into scalable database solutions</li>
+          <li>Documented optimization techniques and best practices for future pipeline improvements</li>
+        </ul>
+        
+        <p><strong>Impact:</strong> Enabled the team to handle 3x more data volume with the same infrastructure, improving system reliability and reducing operational costs. Gained hands-on experience with production-grade data systems and performance optimization strategies.</p>
+        
+        <div class="exp-tags">
+          <span class="exp-tag">ClickHouse</span>
+          <span class="exp-tag">SQL</span>
+          <span class="exp-tag">Database Optimization</span>
+          <span class="exp-tag">Data Engineering</span>
+          <span class="exp-tag">Performance Tuning</span>
+          <span class="exp-tag">Big Data</span>
+          <span class="exp-tag">Production Systems</span>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
