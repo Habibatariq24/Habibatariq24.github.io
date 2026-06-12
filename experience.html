@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Habiba Tariq</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0f0f1e;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(51, 56, 236, 0.1), rgba(255, 0, 110, 0.1));
+            border: 1px solid rgba(255, 0, 110, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: rgba(255, 0, 110, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.2);
+        }
+
+        .experience-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(51, 56, 236, 0.15));
+            border-color: rgba(255, 0, 110, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .experience-card.featured {
+                grid-column: span 1;
+            }
+        }
+
+        .card-header {
+            display: flex;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            font-size: 2.5em;
+            margin-right: 15px;
+            min-width: 50px;
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .company {
+            color: #ff006e;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .duration {
+            color: #8338ec;
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+
+        .description {
+            color: #b0b0b0;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        .highlights {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .highlights li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #b0b0b0;
+            font-size: 0.9em;
+        }
+
+        .highlights li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #ff006e;
+            font-weight: bold;
+        }
+
+        .skills-tag {
+            display: inline-block;
+            background: rgba(255, 0, 110, 0.2);
+            color: #ff006e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin: 5px 5px 5px 0;
+            border: 1px solid rgba(255, 0, 110, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card.featured {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Experience</h1>
+
+        <div class="experience-grid">
+            <!-- Featured: SoloInsight Internship -->
+            <div class="experience-card featured">
+                <div class="card-header">
+                    <div class="icon">💼</div>
+                    <div>
+                        <div class="card-title">Database Intern</div>
+                        <div class="company">SoloInsight</div>
+                        <div class="duration">Jul–Aug 2025</div>
+                    </div>
+                </div>
+                <div class="description">
+                    Worked on production-level database optimization and ClickHouse pipeline enhancement. Gained hands-on experience with enterprise-scale data infrastructure, performance tuning, and real-world database challenges in a professional environment.
+                </div>
+                <div class="highlights">
+                    <li>Optimized ClickHouse data pipeline for improved query performance</li>
+                    <li>Worked with production databases and real-time data processing</li>
+                    <li>Implemented database optimization techniques for large-scale datasets</li>
+                    <li>Collaborated with experienced engineers on enterprise solutions</li>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="skills-tag">ClickHouse</span>
+                    <span class="skills-tag">Database Optimization</span>
+                    <span class="skills-tag">SQL</span>
+                    <span class="skills-tag">Data Pipeline</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="icon">🎓</div>
+                    <div>
+                        <div class="card-title">BS Data Science</div>
+                        <div class="company">FAST NUCES, Lahore</div>
+                        <div class="duration">2022–2026</div>
+                    </div>
+                </div>
+                <div class="description">
+                    Pursuing a comprehensive degree in Data Science with focus on data analysis, machine learning, and statistical methods.
+                </div>
+                <div class="highlights">
+                    <li>Core coursework in data science and analytics</li>
+                    <li>Strong foundation in statistics and mathematics</li>
+                    <li>Hands-on project experience</li>
+                </div>
+            </div>
+
+            <!-- Competitions & Achievements -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="icon">🏆</div>
+                    <div>
+                        <div class="card-title">Data Visualization Competition</div>
+                        <div class="company">Softec · April 2025</div>
+                    </div>
+                </div>
+                <div class="description">
+                    Designed interactive dashboards from complex multi-variable datasets, demonstrating advanced data visualization and analytical skills.
+                </div>
+                <div class="highlights">
+                    <li>Created compelling visual narratives from complex data</li>
+                    <li>Interactive dashboard development</li>
+                    <li>Data storytelling excellence</li>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="icon">🎯</div>
+                    <div>
+                        <div class="card-title">Query Master Competition</div>
+                        <div class="company">Softec · March 2024</div>
+                    </div>
+                </div>
+                <div class="description">
+                    Advanced SQL query optimization against university-level competition, showcasing proficiency in database query performance tuning.
+                </div>
+                <div class="highlights">
+                    <li>Complex SQL query optimization</li>
+                    <li>Performance tuning expertise</li>
+                    <li>Competitive programming success</li>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="icon">📚</div>
+                    <div>
+                        <div class="card-title">Python 101 for Data Science</div>
+                        <div class="company">IBM via Coursera</div>
+                        <div class="duration">Sep–Oct 2024</div>
+                    </div>
+                </div>
+                <div class="description">
+                    Completed comprehensive Python course covering fundamentals, data structures, and visualization techniques for data science applications.
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="icon">🌐</div>
+                    <div>
+                        <div class="card-title">Web Scraping with Python</div>
+                        <div class="company">Coursera · Apr–May 2024</div>
+                    </div>
+                </div>
+                <div class="description">
+                    Mastered web data extraction techniques using BeautifulSoup and Requests libraries for practical data collection applications.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
