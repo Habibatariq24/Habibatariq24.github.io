@@ -211,7 +211,7 @@
 
   /* ── PROJECTS ── */
   .projects-grid {
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    display:grid; grid-template-columns: repeat(2, 1fr);
     gap:1.5rem;
   }
 
@@ -347,12 +347,17 @@
   }
 
   /* ── RESPONSIVE ── */
+  @media(max-width:1024px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
   @media(max-width:768px) {
     .about-grid { grid-template-columns:1fr; gap:2.5rem; }
     .hero-photo-placeholder { display:none; }
     .hero-stats { gap:1.5rem; }
     nav { padding:1rem 4vw; }
     .nav-links { gap:1.2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
   }
   @media(max-width:480px) {
     .nav-links { display:none; }
@@ -378,7 +383,7 @@
   <h1 class="hero-name">Habiba<br/><span>Tariq</span></h1>
   <p class="hero-role">Data Scientist · ML Engineer · NLP Engineer</p>
   <p class="hero-bio">
-    Completed a Data Science degree from <strong style="color:var(--lavender)">FAST NUCES, Lahore</strong> with hands-on experience building end-to-end ML and NLP systems — from GAN & diffusion-based image generation to Seq2Seq neural machine translation.
+    Completed a Data Science degree from <strong style="color:var(--lavender)">FAST NUCES, Lahore</strong> with hands-on experience building end-to-end ML and NLP systems — from GAN & diffusion[...]
   </p>
   <div class="hero-cta">
     <a href="#projects" class="btn-primary">View My Projects</a>
@@ -414,9 +419,9 @@
   <div class="section-title">About <span>Me</span></div>
   <div class="about-grid">
     <div class="about-text">
-       <p>I have completed my <strong>BS Data Science</strong> degree from FAST NUCES, Lahore (2022–2026), and I am passionate about turning complex data into intelligent, deployable solutions.</p>
-      <p>I interned at <strong>SoloInsight</strong> where I optimized ClickHouse pipelines processing millions of records, gaining real production data engineering exposure — reducing query latency through materialized views, projections, and compression tuning.</p>
-      <p>I specialize in <strong>ML, NLP, and Computer Vision</strong>, having built systems ranging from GAN-based image generation to neural machine translation for low-resource Urdu language.</p>
+       <p>I have completed my <strong>BS Data Science</strong> degree from FAST NUCES, Lahore (2022–2026), and I am passionate about turning complex data into intelligent, deployable solutions.[...]
+      <p>I interned at <strong>SoloInsight</strong> where I optimized ClickHouse pipelines processing millions of records, gaining real production data engineering exposure — reducing query lat[...]
+      <p>I specialize in <strong>ML, NLP, and Computer Vision</strong>, having built systems ranging from GAN-based image generation to neural machine translation for low-resource Urdu language.<[...]
       <p>I'm seeking a <strong>Data Scientist, ML Engineer, or NLP Engineer</strong> role where I can contribute immediately and grow fast.</p>
     </div>
     <div class="skills-grid">
@@ -489,7 +494,7 @@
     <div class="project-card">
       <div class="project-icon">🍳</div>
       <div class="project-title">ZaikaMate</div>
-      <div class="project-desc">A cross-platform mobile app with a talking AI avatar enabling voice-driven recipe search and interactive step-by-step cooking guidance using NLP and speech recognition.</div>
+      <div class="project-desc">A cross-platform mobile app with a talking AI avatar enabling voice-driven recipe search and interactive step-by-step cooking guidance using NLP and speech recognition.[...]
       <div class="project-tags">
         <span class="project-tag">NLP</span>
         <span class="project-tag">Speech Recognition</span>
@@ -506,7 +511,7 @@
     <div class="project-card">
       <div class="project-icon">🖼️</div>
       <div class="project-title">DescriptoImage</div>
-      <div class="project-desc">Designed and trained GAN and Diffusion-based models to synthesize high-quality fashion images from natural language descriptions. Evaluated output with FID and CLIP scores across 4 architectures.</div>
+      <div class="project-desc">Designed and trained GAN and Diffusion-based models to synthesize high-quality fashion images from natural language descriptions. Evaluated output with FID and CLIP sco[...]
       <div class="project-tags">
         <span class="project-tag">GAN</span>
         <span class="project-tag">Diffusion Models</span>
@@ -522,7 +527,7 @@
     <div class="project-card">
       <div class="project-icon">📸</div>
       <div class="project-title">VisionCaption</div>
-      <div class="project-desc">Built a CNN+LSTM pipeline with Word2Vec embeddings to generate context-aware image captions. Improved BLEU scores through encoder-decoder architecture fine-tuning.</div>
+      <div class="project-desc">Built a CNN+LSTM pipeline with Word2Vec embeddings to generate context-aware image captions. Improved BLEU scores through encoder-decoder architecture fine-tuning.</div[...]
       <div class="project-tags">
         <span class="project-tag">CNN</span>
         <span class="project-tag">LSTM</span>
@@ -537,7 +542,7 @@
     <div class="project-card">
       <div class="project-icon">🌐</div>
       <div class="project-title">LinguaTrans</div>
-      <div class="project-desc">Developed a Seq2Seq model with attention mechanisms for English-to-Urdu translation. Compared RNN, BiRNN, LSTM, and Transformer — Transformer achieved best BLEU score of 0.5475.</div>
+      <div class="project-desc">Developed a Seq2Seq model with attention mechanisms for English-to-Urdu translation. Compared RNN, BiRNN, LSTM, and Transformer — Transformer achieved best BLEU score[...]
       <div class="project-tags">
         <span class="project-tag">Seq2Seq</span>
         <span class="project-tag">Transformer</span>
@@ -639,4 +644,4 @@
 </footer>
 
 </body>
-</html>  
+</html>
