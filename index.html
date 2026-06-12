@@ -128,6 +128,24 @@
     cursor:pointer;
   }
   .hero-photo-placeholder svg { opacity:0.4; }
+  .hero-photo {
+  position: absolute;
+  right: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(155,89,245,0.3);
+  box-shadow: 0 0 40px rgba(155,89,245,0.25);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
   .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
 
@@ -345,6 +363,7 @@
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     font-weight:600;
   }
+  
 
   /* ── RESPONSIVE ── */
   @media(max-width:1024px) {
@@ -405,12 +424,9 @@
   </div>
 
   <!-- Photo placeholder -->
-  <div class="hero-photo-placeholder" title="Add your photo here">
-    <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-      <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-    </svg>
-    <span>Add your<br/>photo here</span>
-  </div>
+<div class="hero-photo">
+  <img src="https://res.cloudinary.com/dq4xd0iea/image/upload/v1781277981/WhatsApp_Image_2026-06-12_at_5.29.33_PM_qgyakk.jpg" alt="Habiba Tariq">
+</div>
 </section>
 
 <!-- ABOUT -->
