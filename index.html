@@ -202,10 +202,37 @@
     box-shadow:0 15px 35px rgba(155,89,245,0.1);
     transform:translateY(-4px);
   }
+
+  /* Certificate badge style card */
+  .exp-card-cert {
+    background: linear-gradient(135deg, rgba(224,64,160,0.06) 0%, rgba(155,89,245,0.08) 100%);
+    border: 1px solid rgba(224,64,160,0.25);
+    border-radius:14px; padding:2rem;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .exp-card-cert::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--pink), var(--purple), var(--lavender));
+  }
+  .exp-card-cert:hover {
+    border-color:rgba(224,64,160,0.45);
+    box-shadow:0 15px 35px rgba(224,64,160,0.12);
+    transform:translateY(-4px);
+  }
+
   .exp-header { display:flex; gap:1.2rem; align-items:flex-start; margin-bottom:1.2rem; }
   .exp-icon {
     width:50px; height:50px;
     background:linear-gradient(135deg, var(--pink), var(--purple));
+    border-radius:12px; display:flex;
+    align-items:center; justify-content:center;
+    font-size:1.5rem; flex-shrink:0;
+  }
+  .exp-icon-alt {
+    width:50px; height:50px;
+    background:linear-gradient(135deg, #e040a0, #c084fc);
     border-radius:12px; display:flex;
     align-items:center; justify-content:center;
     font-size:1.5rem; flex-shrink:0;
@@ -232,18 +259,22 @@
     border:1px solid rgba(155,89,245,0.22);
     font-size:0.75rem; color:var(--lavender); font-weight:500;
   }
-
-  /* Certificate badge */
-  .cert-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(224,64,160,0.08);
-    border: 1px solid rgba(224,64,160,0.3);
-    border-radius: 8px; padding: 0.6rem 1rem;
-    margin-top: 1.2rem; font-size: 0.82rem;
-    color: var(--lavender); font-weight: 500;
+  .exp-tag-pink {
+    padding:0.3rem 0.8rem; border-radius:100px;
+    background:rgba(224,64,160,0.1);
+    border:1px solid rgba(224,64,160,0.25);
+    font-size:0.75rem; color:var(--pink); font-weight:500;
   }
-  .cert-badge .cert-icon { font-size: 1rem; }
-  .cert-badge strong { color: var(--pink); }
+
+  /* Certificate ribbon */
+  .cert-ribbon {
+    display:inline-flex; align-items:center; gap:0.4rem;
+    background:rgba(224,64,160,0.12);
+    border:1px solid rgba(224,64,160,0.3);
+    border-radius:6px; padding:0.4rem 0.8rem;
+    font-size:0.78rem; color:var(--pink); font-weight:600;
+    letter-spacing:0.5px; margin-bottom:1rem;
+  }
 
   /* ── PROJECTS ── */
   .projects-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
@@ -331,12 +362,11 @@
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:600;
   }
 
-  /* ── RESPONSIVE — TABLET ── */
+  /* ── RESPONSIVE ── */
   @media(max-width:1024px) {
     .projects-grid { grid-template-columns:repeat(2,1fr); }
   }
 
-  /* ── RESPONSIVE — MOBILE ── */
   @media(max-width:768px) {
     .hero {
       flex-direction: column;
@@ -369,7 +399,6 @@
     section { padding:4rem 5vw; }
   }
 
-  /* ── RESPONSIVE — SMALL PHONES ── */
   @media(max-width:480px) {
     .nav-links { display:none; }
     .hero-photo-mobile { width:130px; height:130px; }
@@ -395,11 +424,9 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-
   <div class="hero-photo-mobile">
     <img src="https://res.cloudinary.com/dq4xd0iea/image/upload/v1781277981/WhatsApp_Image_2026-06-12_at_5.29.33_PM_qgyakk.jpg" alt="Habiba Tariq">
   </div>
-
   <div class="hero-photo">
     <img src="https://res.cloudinary.com/dq4xd0iea/image/upload/v1781277981/WhatsApp_Image_2026-06-12_at_5.29.33_PM_qgyakk.jpg" alt="Habiba Tariq">
   </div>
@@ -425,7 +452,7 @@
     </div>
     <div>
       <div class="stat-num">2</div>
-      <div class="stat-label">Competitions</div>
+      <div class="stat-label">Internships</div>
     </div>
   </div>
 </section>
@@ -437,7 +464,7 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I recently graduated with a <strong>BS in Data Science from FAST NUCES, Lahore (2022–2026)</strong> and I am passionate about turning complex data into intelligent, deployable solutions.</p>
-      <p>I interned at <strong>SoloInsight</strong> as an <strong>AI & Machine Learning Administrator</strong>, where I optimized ClickHouse pipelines processing millions of records, gaining real production data engineering exposure. I implemented materialized views and data compression strategies that improved system efficiency by 35%.</p>
+      <p>I interned at <strong>Fonts and Colors Advertising</strong> as an AI & ML Administrator and at <strong>SoloInsight</strong> where I optimized ClickHouse pipelines processing millions of records, gaining real production data engineering exposure.</p>
       <p>I specialize in <strong>ML, NLP, and Computer Vision</strong>, having built systems ranging from GAN-based image generation to neural machine translation for the low-resource Urdu language.</p>
       <p>I'm seeking a <strong>Data Scientist, ML Engineer, or NLP Engineer</strong> role where I can contribute immediately and grow fast.</p>
     </div>
@@ -487,20 +514,51 @@
   <div class="section-eyebrow">Professional Experience</div>
   <div class="section-title">Work <span>History</span></div>
   <div class="experience-grid">
-    <div class="exp-card-main">
+
+    <!-- NEW: Fonts and Colors Advertising -->
+    <div class="exp-card-cert">
       <div class="exp-header">
-        <div class="exp-icon">🤖</div>
+        <div class="exp-icon-alt">🤖</div>
         <div class="exp-meta">
           <div class="exp-title">AI & Machine Learning Administrator</div>
-          <div class="exp-subtitle">SoloInsight</div>
-          <div class="exp-duration">Summer Internship · 2025</div>
+          <div class="exp-subtitle">Fonts and Colors Advertising</div>
+          <div class="exp-duration">2nd June – 14th July 2025</div>
         </div>
       </div>
       <div class="exp-content">
-        <p>Completed a summer internship at <strong>SoloInsight</strong> as an <strong>AI & Machine Learning Administrator</strong>, earning certification for being hardworking and highly productive. Focused on optimizing production data pipelines and applying AI/ML techniques to real-world data challenges.</p>
+        
+        <p>Completed a summer internship at <strong>Fonts and Colors Advertising</strong>, serving as an AI & Machine Learning Administrator. Recognized by management as <strong>hardworking and highly productive</strong>, contributing meaningfully to the organization's AI initiatives during the internship period.</p>
+        <ul class="exp-bullets">
+          <li>Administered and supported AI and machine learning systems within the organization's workflow</li>
+          <li>Collaborated with the team to integrate intelligent solutions into advertising and creative processes</li>
+          <li>Demonstrated strong work ethic and high productivity throughout the engagement</li>
+          <li>Successfully completed all assigned tasks, earning a formal certification from the organization</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag-pink">Artificial Intelligence</span>
+          <span class="exp-tag-pink">Machine Learning</span>
+          <span class="exp-tag-pink">AI Administration</span>
+          <span class="exp-tag">Advertising Tech</span>
+          <span class="exp-tag">Summer 2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SoloInsight -->
+    <div class="exp-card-main">
+      <div class="exp-header">
+        <div class="exp-icon">💼</div>
+        <div class="exp-meta">
+          <div class="exp-title">Database Intern</div>
+          <div class="exp-subtitle">SoloInsight</div>
+          <div class="exp-duration">July – August 2025</div>
+        </div>
+      </div>
+      <div class="exp-content">
+        <p>Joined <strong>SoloInsight</strong> as a Database Intern focusing on optimizing production data pipelines. Worked with <strong>ClickHouse</strong>, a high-performance columnar database handling billions of records.</p>
         <p><strong>Key Responsibilities & Achievements:</strong></p>
         <ul class="exp-bullets">
-          <li>Optimized <strong>ClickHouse</strong> pipelines and queries processing millions of records, reducing average query latency by <strong>40–50%</strong></li>
+          <li>Optimized ClickHouse pipelines and queries processing millions of records, reducing average query latency by <strong>40–50%</strong></li>
           <li>Implemented <strong>materialized views</strong> and <strong>projections</strong> to pre-aggregate frequently accessed data, eliminating redundant computations</li>
           <li>Applied <strong>data compression strategies</strong> including LZ4 and ZSTD compression, reducing storage footprint by 35% without sacrificing query speed</li>
           <li>Tuned database parameters and indexing strategies to optimize memory usage and CPU efficiency</li>
@@ -509,13 +567,7 @@
           <li>Documented optimization techniques and best practices for future pipeline improvements</li>
         </ul>
         <p><strong>Impact:</strong> Enabled the team to handle 3× more data volume with the same infrastructure, improving system reliability and reducing operational costs.</p>
-        <div class="cert-badge">
-          <span class="cert-icon">📜</span>
-          Certified by SoloInsight — <strong>Hard Working & Highly Productive</strong> · Summer 2025
-        </div>
         <div class="exp-tags">
-          <span class="exp-tag">AI Administration</span>
-          <span class="exp-tag">Machine Learning</span>
           <span class="exp-tag">ClickHouse</span>
           <span class="exp-tag">SQL</span>
           <span class="exp-tag">Database Optimization</span>
@@ -526,6 +578,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -599,14 +652,6 @@
   <div class="achievements-grid">
 
     <div class="achievement-card">
-      <div class="achievement-icon">🏢</div>
-      <div>
-        <div class="achievement-title">AI & ML Internship Certificate</div>
-        <div class="achievement-sub">SoloInsight · Summer 2025 — Certified as hard working and highly productive during the internship program</div>
-      </div>
-    </div>
-
-    <div class="achievement-card">
       <div class="achievement-icon">🥇</div>
       <div>
         <div class="achievement-title">Data Visualization Competition</div>
@@ -643,6 +688,14 @@
       <div>
         <div class="achievement-title">Web Scraping with Python</div>
         <div class="achievement-sub">Coursera · Apr–May 2024 — BeautifulSoup & Requests for web data extraction</div>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">🤖</div>
+      <div>
+        <div class="achievement-title">AI & ML Internship Certificate</div>
+        <div class="achievement-sub">Fonts and Colors Advertising · July 2025 — Certified as AI & Machine Learning Administrator</div>
       </div>
     </div>
 
