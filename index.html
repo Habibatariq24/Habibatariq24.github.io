@@ -78,8 +78,7 @@
 
   .hero-photo {
     position: absolute;
-    right: 8vw;
-    top: 50%;
+    right: 8vw; top: 50%;
     transform: translateY(-50%);
     width: 260px; height: 260px;
     border-radius: 50%; overflow: hidden;
@@ -88,7 +87,6 @@
     z-index: 2;
   }
   .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-
   .hero-photo-mobile { display: none; }
 
   .hero-tag {
@@ -192,6 +190,7 @@
 
   /* ── EXPERIENCE ── */
   .experience-grid { display:flex; flex-direction:column; gap:2rem; }
+
   .exp-card-main {
     background:var(--card); border:1px solid var(--border);
     border-radius:14px; padding:2rem;
@@ -203,7 +202,6 @@
     transform:translateY(-4px);
   }
 
-  /* Certificate badge style card */
   .exp-card-cert {
     background: linear-gradient(135deg, rgba(224,64,160,0.06) 0%, rgba(155,89,245,0.08) 100%);
     border: 1px solid rgba(224,64,160,0.25);
@@ -246,12 +244,13 @@
   .exp-duration { font-size:0.82rem; color:var(--muted); }
   .exp-content p { color:var(--muted); font-size:0.95rem; line-height:1.8; margin-bottom:1rem; }
   .exp-content p strong { color:var(--lavender); }
-  .exp-bullets { margin:1.5rem 0; padding-left:1.5rem; }
+  .exp-bullets { margin:1.5rem 0; padding-left:0; }
   .exp-bullets li {
     color:var(--muted); font-size:0.9rem;
     margin-bottom:0.8rem; line-height:1.7; list-style:none;
   }
-  .exp-bullets li:before { content:"▪ "; color:var(--pink); font-weight:bold; margin-right:0.6rem; }
+  .exp-bullets li::before { content:"▪ "; color:var(--pink); font-weight:bold; margin-right:0.6rem; }
+  .exp-bullets li strong { color:var(--lavender); }
   .exp-tags { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.5rem; }
   .exp-tag {
     padding:0.3rem 0.8rem; border-radius:100px;
@@ -266,14 +265,33 @@
     font-size:0.75rem; color:var(--pink); font-weight:500;
   }
 
-  /* Certificate ribbon */
-  .cert-ribbon {
-    display:inline-flex; align-items:center; gap:0.4rem;
-    background:rgba(224,64,160,0.12);
-    border:1px solid rgba(224,64,160,0.3);
-    border-radius:6px; padding:0.4rem 0.8rem;
-    font-size:0.78rem; color:var(--pink); font-weight:600;
-    letter-spacing:0.5px; margin-bottom:1rem;
+  /* Chatbot highlight box */
+  .chatbot-highlight {
+    background: rgba(155,89,245,0.08);
+    border: 1px solid rgba(155,89,245,0.25);
+    border-left: 3px solid var(--purple);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+  }
+  .chatbot-highlight .ch-title {
+    font-family:'Syne', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--lavender); margin-bottom: 0.4rem;
+  }
+  .chatbot-highlight p {
+    font-size: 0.88rem !important;
+    margin-bottom: 0.5rem !important;
+    color: var(--muted);
+  }
+  .chatbot-highlight .ch-tags {
+    display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.6rem;
+  }
+  .chatbot-highlight .ch-tag {
+    padding:0.15rem 0.6rem; border-radius:100px;
+    background:rgba(155,89,245,0.15);
+    border:1px solid rgba(155,89,245,0.3);
+    font-size:0.72rem; color:var(--lavender); font-weight:500;
   }
 
   /* ── PROJECTS ── */
@@ -362,28 +380,24 @@
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:600;
   }
 
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE — TABLET ── */
   @media(max-width:1024px) {
     .projects-grid { grid-template-columns:repeat(2,1fr); }
   }
 
+  /* ── RESPONSIVE — MOBILE ── */
   @media(max-width:768px) {
     .hero {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 6.5rem 5vw 4rem;
-      min-height: 100vh;
+      flex-direction: column; align-items: center;
+      text-align: center; padding: 6.5rem 5vw 4rem; min-height: 100vh;
     }
     .hero-photo { display: none; }
     .hero-photo-mobile {
-      display: block;
-      width: 150px; height: 150px;
+      display: block; width: 150px; height: 150px;
       border-radius: 50%; overflow: hidden;
       border: 3px solid rgba(155,89,245,0.4);
       box-shadow: 0 0 30px rgba(155,89,245,0.3);
-      margin: 0 auto 1.8rem;
-      flex-shrink: 0;
+      margin: 0 auto 1.8rem; flex-shrink: 0;
     }
     .hero-photo-mobile img { width:100%; height:100%; object-fit:cover; display:block; }
     .hero-tag { margin: 0 auto 1.4rem; }
@@ -399,6 +413,7 @@
     section { padding:4rem 5vw; }
   }
 
+  /* ── RESPONSIVE — SMALL PHONES ── */
   @media(max-width:480px) {
     .nav-links { display:none; }
     .hero-photo-mobile { width:130px; height:130px; }
@@ -493,7 +508,8 @@
         <div class="skill-tags">
           <span class="tag">Pandas</span><span class="tag">NumPy</span>
           <span class="tag">Matplotlib</span><span class="tag">OpenCV</span>
-          <span class="tag">HuggingFace</span><span class="tag">BeautifulSoup</span>
+          <span class="tag">HuggingFace</span><span class="tag">LangChain</span>
+          <span class="tag">Gradio</span><span class="tag">BeautifulSoup</span>
           <span class="tag">Requests</span>
         </div>
       </div>
@@ -515,34 +531,51 @@
   <div class="section-title">Work <span>History</span></div>
   <div class="experience-grid">
 
-    <!-- NEW: Fonts and Colors Advertising -->
+    <!-- Fonts and Colors Advertising -->
     <div class="exp-card-cert">
       <div class="exp-header">
         <div class="exp-icon-alt">🤖</div>
         <div class="exp-meta">
-          <div class="exp-title">AI & Machine Learning Administrator</div>
+          <div class="exp-title">AI &amp; Machine Learning Administrator</div>
           <div class="exp-subtitle">Fonts and Colors Advertising</div>
-          <div class="exp-duration">June – July 2025</div>
+          <div class="exp-duration">Summer Internship · June – July 2025</div>
         </div>
       </div>
       <div class="exp-content">
-        
-        <p>Completed a summer internship at <strong>Fonts and Colors Advertising</strong>, serving as an AI & Machine Learning Administrator. Recognized by management as <strong>hardworking and highly productive</strong>, contributing meaningfully to the organization's AI initiatives during the internship period.</p>
+        <p>Completed a summer internship at <strong>Fonts and Colors Advertising</strong> as an AI &amp; Machine Learning Administrator. Recognized by management as <strong>hardworking and highly productive</strong>, earning a formal certificate of completion for outstanding contributions to the organization's AI initiatives.</p>
         <ul class="exp-bullets">
-<li>Administered and supported AI and machine learning systems within the organization's workflow</li>
-<li>Collaborated with the team to integrate intelligent solutions into advertising and creative processes</li>
-<li>Built a <strong>Resume Q&A Chatbot</strong> — an AI-powered tool enabling users to upload any resume PDF and ask natural language questions about the candidate's education, skills, internships, and contact info, returning instant bullet-point answers</li>
-<li>Developed the chatbot using <strong>HuggingFace Transformers</strong>, <strong>LangChain</strong>, and <strong>Gradio</strong>, with a PDF extraction pipeline that indexes resume sections for fast, accurate retrieval</li>
-<li>Designed the tool to automate resume screening for recruiters and HR professionals, reducing manual review time significantly</li>
-<li>Demonstrated strong work ethic and high productivity throughout the engagement</li>
-<li>Successfully completed all assigned tasks, earning a formal certification from the organization</li>
+          <li>Administered and supported AI and machine learning systems within the organization's workflow</li>
+          <li>Collaborated with the team to integrate intelligent solutions into advertising and creative processes</li>
+          <li>Built a <strong>Resume Q&amp;A Chatbot</strong> — an AI-powered tool enabling users to upload any resume PDF and ask natural language questions about the candidate's education, skills, internships, and contact info, returning instant bullet-point answers</li>
+          <li>Developed the chatbot using <strong>HuggingFace Transformers</strong>, <strong>LangChain</strong>, and <strong>Gradio</strong>, with a PDF extraction pipeline that indexes resume sections for fast, accurate retrieval</li>
+          <li>Designed the tool to automate resume screening for recruiters and HR professionals, significantly reducing manual review time</li>
+          <li>Demonstrated strong work ethic and high productivity throughout the engagement</li>
+          <li>Successfully completed all assigned tasks, earning a formal certification from the organization</li>
         </ul>
+
+        <!-- Chatbot highlight box -->
+        <div class="chatbot-highlight">
+          <div class="ch-title">🚀 Featured Build — Resume Q&amp;A Chatbot</div>
+          <p>Upload any resume PDF and ask questions in plain English — the chatbot extracts and indexes sections like Education, Skills, Internships, and Contact info, then returns structured bullet-point answers instantly. Built to save recruiters countless hours of manual screening.</p>
+          <div class="ch-tags">
+            <span class="ch-tag">HuggingFace Transformers</span>
+            <span class="ch-tag">LangChain</span>
+            <span class="ch-tag">Gradio</span>
+            <span class="ch-tag">PDF Extraction</span>
+            <span class="ch-tag">RAG Pipeline</span>
+            <span class="ch-tag">NLP</span>
+          </div>
+        </div>
+
         <div class="exp-tags">
           <span class="exp-tag-pink">Artificial Intelligence</span>
           <span class="exp-tag-pink">Machine Learning</span>
+          <span class="exp-tag-pink">NLP</span>
           <span class="exp-tag-pink">AI Administration</span>
+          <span class="exp-tag">LangChain</span>
+          <span class="exp-tag">HuggingFace</span>
+          <span class="exp-tag">Gradio</span>
           <span class="exp-tag">Advertising Tech</span>
-          <span class="exp-tag">Summer 2025</span>
         </div>
       </div>
     </div>
@@ -554,12 +587,12 @@
         <div class="exp-meta">
           <div class="exp-title">Database Intern</div>
           <div class="exp-subtitle">SoloInsight</div>
-          <div class="exp-duration">July – August 2025</div>
+          <div class="exp-duration">July – August 2025 · 2 months</div>
         </div>
       </div>
       <div class="exp-content">
         <p>Joined <strong>SoloInsight</strong> as a Database Intern focusing on optimizing production data pipelines. Worked with <strong>ClickHouse</strong>, a high-performance columnar database handling billions of records.</p>
-        <p><strong>Key Responsibilities & Achievements:</strong></p>
+        <p><strong>Key Responsibilities &amp; Achievements:</strong></p>
         <ul class="exp-bullets">
           <li>Optimized ClickHouse pipelines and queries processing millions of records, reducing average query latency by <strong>40–50%</strong></li>
           <li>Implemented <strong>materialized views</strong> and <strong>projections</strong> to pre-aggregate frequently accessed data, eliminating redundant computations</li>
@@ -590,6 +623,20 @@
   <div class="section-eyebrow">What I've Built</div>
   <div class="section-title">Featured <span>Projects</span></div>
   <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">🤖</div>
+      <div class="project-title">Resume Q&amp;A Chatbot</div>
+      <div class="project-desc">AI-powered chatbot that lets users upload any resume PDF and ask natural language questions about the candidate's education, skills, internships, and contact info — returning instant, structured bullet-point answers to automate recruiter screening.</div>
+      <div class="project-tags">
+        <span class="project-tag">HuggingFace</span><span class="project-tag">LangChain</span>
+        <span class="project-tag">Gradio</span><span class="project-tag">RAG</span>
+        <span class="project-tag">PDF Extraction</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Habibatariq24" target="_blank" class="project-link">↗ GitHub</a>
+      </div>
+    </div>
 
     <div class="project-card">
       <div class="project-icon">🍳</div>
@@ -651,8 +698,16 @@
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-eyebrow">Recognition</div>
-  <div class="section-title">Achievements & <span>Certifications</span></div>
+  <div class="section-title">Achievements &amp; <span>Certifications</span></div>
   <div class="achievements-grid">
+
+    <div class="achievement-card">
+      <div class="achievement-icon">📜</div>
+      <div>
+        <div class="achievement-title">AI &amp; ML Internship Certificate</div>
+        <div class="achievement-sub">Fonts and Colors Advertising · Summer 2025 — Certified as hardworking and highly productive for outstanding AI contributions</div>
+      </div>
+    </div>
 
     <div class="achievement-card">
       <div class="achievement-icon">🥇</div>
@@ -682,7 +737,7 @@
       <div class="achievement-icon">📜</div>
       <div>
         <div class="achievement-title">Python 101 for Data Science</div>
-        <div class="achievement-sub">IBM via Coursera · Sep–Oct 2024 — Python fundamentals, data structures & visualization</div>
+        <div class="achievement-sub">IBM via Coursera · Sep–Oct 2024 — Python fundamentals, data structures &amp; visualization</div>
       </div>
     </div>
 
@@ -690,11 +745,9 @@
       <div class="achievement-icon">📜</div>
       <div>
         <div class="achievement-title">Web Scraping with Python</div>
-        <div class="achievement-sub">Coursera · Apr–May 2024 — BeautifulSoup & Requests for web data extraction</div>
+        <div class="achievement-sub">Coursera · Apr–May 2024 — BeautifulSoup &amp; Requests for web data extraction</div>
       </div>
     </div>
-
-   
 
   </div>
 </section>
@@ -719,7 +772,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>Designed & built by <span>Habiba Tariq</span> · Lahore, Pakistan · 2026</p>
+  <p>Designed &amp; built by <span>Habiba Tariq</span> · Lahore, Pakistan · 2026</p>
 </footer>
 
 </body>
