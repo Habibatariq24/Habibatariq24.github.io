@@ -334,6 +334,16 @@
   }
   .project-link:hover { color:var(--pink); }
 
+  /* Featured badge for new project cards */
+  .project-badge {
+    display:inline-block;
+    font-size:0.65rem; font-weight:700; letter-spacing:1px;
+    text-transform:uppercase; color:#fff;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    padding:0.2rem 0.6rem; border-radius:100px;
+    margin-bottom:0.8rem;
+  }
+
   /* ── ACHIEVEMENTS ── */
   .achievements-grid {
     display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem;
@@ -458,7 +468,7 @@
   </div>
   <div class="hero-stats">
     <div>
-      <div class="stat-num">7+</div>
+      <div class="stat-num">10+</div>
       <div class="stat-label">ML Projects</div>
     </div>
     <div>
@@ -528,6 +538,7 @@
           <span class="tag">Pinecone</span><span class="tag">OpenAI API</span>
           <span class="tag">Google Gemini API</span>
           <span class="tag">Google Drive API</span><span class="tag">Workflow Automation</span>
+          <span class="tag">Cursor</span><span class="tag">Lovable</span>
         </div>
       </div>
     </div>
@@ -632,6 +643,53 @@
   <div class="section-eyebrow">What I've Built</div>
   <div class="section-title">Featured <span>Projects</span></div>
   <div class="projects-grid">
+
+    <!-- NEW: Interview Coach -->
+    <div class="project-card">
+      <span class="project-badge">Built Overnight</span>
+      <div class="project-icon">🎯</div>
+      <div class="project-title">Interview Coach</div>
+      <div class="project-desc">An AI-powered interview prep tool — paste a job description and resume, get 5–6 tailored interview questions, type your answers, and receive instant AI feedback on clarity, structure, and specificity. Built in a single evening in Cursor to demonstrate rapid AI product development.</div>
+      <div class="project-tags">
+        <span class="project-tag">Cursor</span><span class="project-tag">LLM API</span>
+        <span class="project-tag">JavaScript</span><span class="project-tag">Rapid Prototyping</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Habibatariq24/interview-coach" target="_blank" class="project-link">↗ GitHub</a>
+      </div>
+    </div>
+
+    <!-- NEW: Who Owes Who — Split Bill -->
+    <div class="project-card">
+      <span class="project-badge">Weekend Build</span>
+      <div class="project-icon">💸</div>
+      <div class="project-title">Who Owes Who — Split Bill</div>
+      <div class="project-desc">Type a plain-English sentence like "I paid 40 for dinner with Alex and Sam" and get an instant settled bill. An n8n backend parses the message with GPT-4o-mini, calculates each person's share, logs it to Google Sheets, and returns a live settlement summary — no traditional backend written by hand.</div>
+      <div class="project-tags">
+        <span class="project-tag">n8n</span><span class="project-tag">Lovable</span>
+        <span class="project-tag">GPT-4o-mini</span><span class="project-tag">Google Sheets</span>
+        <span class="project-tag">No-Code Backend</span>
+      </div>
+      <div class="project-links">
+        <a href="https://who-owws-who.lovable.app" target="_blank" class="project-link">↗ Live App</a>
+        <a href="https://github.com/Habibatariq24/who-owes-who" target="_blank" class="project-link">↗ GitHub</a>
+      </div>
+    </div>
+
+    <!-- NEW: Prompt Critique -->
+    <div class="project-card">
+      <span class="project-badge">AI Builder Prep</span>
+      <div class="project-icon">🧠</div>
+      <div class="project-title">Prompt Critique</div>
+      <div class="project-desc">An AI tool that critiques your prompts — paste any prompt and get a quality score out of 10, specific weaknesses (missing audience, format, or success criteria), and a rewritten, stronger version ready to use. Built end-to-end in Lovable, with local prompt history to track improvement over time.</div>
+      <div class="project-tags">
+        <span class="project-tag">Lovable</span><span class="project-tag">LLM API</span>
+        <span class="project-tag">Prompt Engineering</span><span class="project-tag">Rapid Prototyping</span>
+      </div>
+      <div class="project-links">
+        <a href="https://promptcritique.lovable.app" target="_blank" class="project-link">↗ Live Demo</a>
+      </div>
+    </div>
 
     <div class="project-card">
       <div class="project-icon">🧩</div>
